@@ -1,0 +1,23 @@
+---
+language: python
+services: docker
+
+env:
+  global:
+    - ROLE_NAME:
+  matrix:
+    - MOLECULE_DISTRIB: debian10:latest
+
+install:
+  - pip install molecule yamllint ansible-lint docker
+
+before_script:
+  - cd ../
+  - mv ansible-$ROLE_NAME supertarto.$ROLE_NAME
+  - cd supertarto.$ROLE_NAME
+
+script:
+  - molecule test
+
+notifications:
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/

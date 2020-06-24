@@ -1,0 +1,18 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+lint: |
+  yamllint .
+  ansible-lint
+platforms:
+  - name: instance
+    image: "thetarto/ansible-${MOLECULE_DISTRIB}"
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privileged: true
+    command: /lib/systemd/systemd
+    pre_build_image: true
+provisioner:
+  name: ansible
