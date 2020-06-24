@@ -4,11 +4,16 @@
     path: "{{ wikijs_download_dest }}"
   register: wikijsinstalled
 
+- name: "Does Wiki.js directory exist?"
+  file:
+    path: "{{ wikijs_download_dest }}"
+    state: directory
+
 - name: Download and extract Wiki.js
   unarchive:
     src: "{{ wikijs_download_url }}"
     remote_src: true
-    dest: "{{ wikijs_download_dest }}"
+    dest: "{{ wikijs_download_dest }}/"
   when: not wikijsinstalled.stat.exists or wikijs_update
 
 - name: Deploy config.yml
