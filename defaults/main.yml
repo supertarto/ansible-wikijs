@@ -10,7 +10,8 @@ wikijs_download_dest: /usr/local/wikijs
 #################################
 
 wikijs_config_port: 3000
-wikijs_config_db_type: postgres # postgres, mysql, mariadb, mssql, sqlite
+# postgres, mysql, mariadb, mssql, sqlite
+wikijs_config_db_type: postgres
 wikijs_config_db_host: localhost
 wikijs_config_db_port: 5432
 wikijs_config_db_user: wikijs
@@ -29,21 +30,25 @@ wikijs_config_db_ssl_auto: true
 # wikijs_config_db_ssl_pfx: path/to/cert.pfx
 # wikijs_config_db_ssl_passphrase: xyz123
 
-wikijs_config_sqlite_storage: path/to/database.sqlite # only used if sqlite is selected
+# only used if sqlite is selected
+wikijs_config_sqlite_storage: path/to/database.sqlite
 
 wikijs_config_ssl_enabled: false
 wikijs_config_ssl_port: 3443
-wikijs_config_ssl_provider: custom # custom, letsencrypt
+# custom, letsencrypt
+wikijs_config_ssl_provider: custom
 
 # For custom only
-wikijs_config_ssl_format: pem #pem, pfx
-wikijs_config_ssl_key: path/to/key.pem # only for pem
-wikijs_config_ssl_cert: path/to/cert.pem # only for pem
-wikijs_config_ssl_pfx: path/to/cert.pfx # only for pfx
+#pem, pfx
+wikijs_config_ssl_format: pem
+# only for pem
+wikijs_config_ssl_key: path/to/key.pem
+wikijs_config_ssl_cert: path/to/cert.pem
+wikijs_config_ssl_pfx: path/to/cert.pfx
 wikijs_config_ssl_passphrase: null
 wikijs_config_ssl_dhparam: null
 
-# For letsencrypt only 
+# For letsencrypt only
 wikijs_config_ssl_domain: wiki.yourdomain.com
 wikijs_config_ssl_subscriberEmail: admin@example.com
 
