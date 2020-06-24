@@ -1,2 +1,15 @@
 ---
+- name: Reload systemctl daemon
+  systemd:
+    daemon_reload: true
 
+- name: Activate Wiki.js service
+  service:
+    name: wiki
+    state: started
+    enabled: true
+
+- name: Restart Wiki.js
+  service:
+    name: wiki
+    state: restarted

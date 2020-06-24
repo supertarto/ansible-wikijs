@@ -1,2 +1,54 @@
 ---
+wikijs_update: false
 
+wikijs_version: "2.4.107"
+wikijs_download_url: https://github.com/Requarks/wiki/releases/download/{{ wikijs_version }}/wiki-js.tar.gz
+wikijs_download_dest: /usr/local/wikijs
+
+#################################
+# CONFIG FILE SPECIFIC VARIABLES
+#################################
+
+wikijs_config_port: 3000
+wikijs_config_db_type: postgres # postgres, mysql, mariadb, mssql, sqlite
+wikijs_config_db_host: localhost
+wikijs_config_db_port: 5432
+wikijs_config_db_user: wikijs
+wikijs_config_db_pass: wikijsrocks
+wikijs_config_db_db: wiki
+wikijs_config_db_ssl: false
+
+wikijs_config_db_ssl_auto: true
+
+# UNCOMMENT ONLY IF wikijs_config_ssl_auto si FALSE
+
+# wikijs_config_db_ssl_rejectUnauthorized: false
+# wikijs_config_db_ssl_ca: path/to/ca.crt
+# wikijs_config_db_ssl_cert: path/to/cert.crt
+# wikijs_config_db_ssl_key: path/to/key.pem
+# wikijs_config_db_ssl_pfx: path/to/cert.pfx
+# wikijs_config_db_ssl_passphrase: xyz123
+
+wikijs_config_sqlite_storage: path/to/database.sqlite # only used if sqlite is selected
+
+wikijs_config_ssl_enabled: false
+wikijs_config_ssl_port: 3443
+wikijs_config_ssl_provider: custom # custom, letsencrypt
+
+# For custom only
+wikijs_config_ssl_format: pem #pem, pfx
+wikijs_config_ssl_key: path/to/key.pem # only for pem
+wikijs_config_ssl_cert: path/to/cert.pem # only for pem
+wikijs_config_ssl_pfx: path/to/cert.pfx # only for pfx
+wikijs_config_ssl_passphrase: null
+wikijs_config_ssl_dhparam: null
+
+# For letsencrypt only 
+wikijs_config_ssl_domain: wiki.yourdomain.com
+wikijs_config_ssl_subscriberEmail: admin@example.com
+
+wikijs_config_bindIP: "0.0.0.0"
+wikijs_config_logLevel: info
+wikijs_config_offline: false
+wikijs_config_ha: false
+wikijs_config_dataPath: ./data

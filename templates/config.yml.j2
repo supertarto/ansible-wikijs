@@ -1,0 +1,129 @@
+#######################################################################
+# Wiki.js - CONFIGURATION                                             #
+#######################################################################
+# Full documentation + examples:
+# https://docs.requarks.io/install
+
+# ---------------------------------------------------------------------
+# Port the server should listen to
+# ---------------------------------------------------------------------
+
+port: {{ wikijs_config_port }}
+
+# ---------------------------------------------------------------------
+# Database
+# ---------------------------------------------------------------------
+# Supported Database Engines:
+# - postgres = PostgreSQL 9.5 or later
+# - mysql = MySQL 8.0 or later (5.7.8 partially supported, refer to docs)
+# - mariadb = MariaDB 10.2.7 or later
+# - mssql = MS SQL Server 2012 or later
+# - sqlite = SQLite 3.9 or later
+
+db:
+  type: {{ wikijs_config_db_type }}
+
+  # PostgreSQL / MySQL / MariaDB / MS SQL Server only:
+  host: {{ wikijs_config_db_host }}
+  port: {{ wikijs_config_db_port }}
+  user: {{ wikijs_config_db_user }}
+  pass: {{ wikijs_config_db_pass }}
+  db: {{ wikijs_config_db_db}}
+  ssl: {{ wikijs_config_db_ssl}}
+
+  # Optional - PostgreSQL / MySQL / MariaDB only:
+  # -> Uncomment lines you need below and set `auto` to false
+  # -> Full list of accepted options: https://nodejs.org/api/tls.html#tls_tls_createsecurecontext_options
+  sslOptions:
+    auto: {{ wikijs_config_db_ssl_auto }}
+    # rejectUnauthorized: {{ wikijs_config_ssl_rejectUnauthorized }}
+    # ca: {{ wikijs_config_db_ssl_ca }}
+    # cert: {{ wikijs_config_db_ssl_cert }}
+    # key: {{ wikijs_config_db_ssl_key }}
+    # pfx: {{ wikijs_config_db_ssl_pfx }}
+    # passphrase: {{ wikijs_config_db_ssl_passphrase }}
+
+  # SQLite only:
+  storage: {{ wikijs_config_sqlite_storage }}
+
+#######################################################################
+# ADVANCED OPTIONS                                                    #
+#######################################################################
+# Do not change unless you know what you are doing!
+
+# ---------------------------------------------------------------------
+# SSL/TLS Settings
+# ---------------------------------------------------------------------
+# Consider using a reverse proxy (e.g. nginx) if you require more
+# advanced options than those provided below.
+
+ssl:
+  enabled: {{ wikijs_config_ssl_enabled }}
+  port: {{ wikijs_config_ssl_port }}
+
+  # Provider to use, possible values: custom, letsencrypt
+  provider: {{ wikijs_config_ssl_provider }}
+
+  # ++++++ For custom only ++++++
+  # Certificate format, either 'pem' or 'pfx':
+  format: {{ wikijs_config_ssl_format }}
+  # Using PEM format:
+  key: {{ wikijs_config_ssl_key }}
+  cert: {{ wikijs_config_ssl_cert }}
+  # Using PFX format:
+  pfx: {{ wikijs_config_ssl_pfx }}
+  # Passphrase when using encrypted PEM / PFX keys (default: null):
+  passphrase: {{ wikijs_config_ssl_passphrase }}
+  # Diffie Hellman parameters, with key length being greater or equal
+  # to 1024 bits (default: null):
+  dhparam: {{ wikijs_config_ssl_dhparam }}
+
+  # ++++++ For letsencrypt only ++++++
+  domain: {{ wikijs_config_ssl_domain }}
+  subscriberEmail: {{ wikijs_config_ssl_subscriberEmail }}
+
+# ---------------------------------------------------------------------
+# Database Pool Options
+# ---------------------------------------------------------------------
+# Refer to https://github.com/vincit/tarn.js for all possible options
+
+pool:
+  # min: 2
+  # max: 10
+
+# ---------------------------------------------------------------------
+# IP address the server should listen to
+# ---------------------------------------------------------------------
+# Leave 0.0.0.0 for all interfaces
+
+bindIP: {{ wikijs_config_bindIP }}
+
+# ---------------------------------------------------------------------
+# Log Level
+# ---------------------------------------------------------------------
+# Possible values: error, warn, info (default), verbose, debug, silly
+
+logLevel: {{ wikijs_config_logLevel }}
+
+# ---------------------------------------------------------------------
+# Offline Mode
+# ---------------------------------------------------------------------
+# If your server cannot access the internet. Set to true and manually
+# download the offline files for sideloading.
+
+offline: {{ wikijs_config_offline }}
+
+# ---------------------------------------------------------------------
+# High-Availability
+# ---------------------------------------------------------------------
+# Set to true if you have multiple concurrent instances running off the
+# same DB (e.g. Kubernetes pods / load balanced instances). Leave false
+# otherwise. You MUST be using PostgreSQL to use this feature.
+
+ha: {{ wikijs_config_ha }}
+
+# ---------------------------------------------------------------------
+# Data Path
+# ---------------------------------------------------------------------
+# Writeable data path used for cache and temporary user uploads.
+dataPath: {{ wikijs_config_dataPath }}

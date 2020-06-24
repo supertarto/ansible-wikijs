@@ -1,2 +1,35 @@
 ---
+- name: Check if Wiki.js is already installed
+  stat:
+    path: "{{ wikijs_download_dest }}"
+  register: wikijsinstalled
 
+- name: Download and extract Wiki.js
+  unarchive:
+    src: "{{ wikijs_download_url }}"
+    remote_src: true
+    dest: "{{ wikijs_download_dest }}"
+  when: not wikijsinstalled.stat.exists or wikijs_update
+
+- name: Deploy config.yml
+  template:
+    src: config.yml.j2
+    dest: "{{ wikijs_download_dest }}/config.yml"
+    owner: root
+    group: root
+    mode: 0640
+  notify: Restart Wiki.js
+
+- name: Copy service file
+  template:
+    src: wiki.service.j2
+    dest: "/etc/systemd/system/wiki.service"
+    owner: root
+    group: root
+    mode: 0640
+  notify:
+    - Reload systemctl daemon
+    - Activate Wiki.js service
+
+- name: Flush handlers
+  meta: flush_handlers

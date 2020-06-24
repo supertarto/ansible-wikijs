@@ -2,4 +2,21 @@
 - name: Converge
   hosts: all
   roles:
-    - role: supertarto.
+    - role: supertarto.nodejs
+    - role: supertarto.postgresql
+    - role: supertarto.wikijs
+
+  pre_tasks:
+    - name: Update apt cache.
+      apt:
+        update_cache: true
+        cache_valid_time: 600
+      when: ansible_os_family == 'Debian'
+      changed_when: false
+
+  vars:
+    postgresql_databases:
+      - name: wiki
+    postgresql_users:
+      - name: wikijs
+        password: wikijsrocks
