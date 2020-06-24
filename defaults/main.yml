@@ -39,7 +39,7 @@ wikijs_config_ssl_port: 3443
 wikijs_config_ssl_provider: custom
 
 # For custom only
-#pem, pfx
+# pem, pfx
 wikijs_config_ssl_format: pem
 # only for pem
 wikijs_config_ssl_key: path/to/key.pem
