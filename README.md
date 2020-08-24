@@ -35,19 +35,21 @@ wikijs_config_db_user: wikijs
 wikijs_config_db_pass: wikijsrocks
 wikijs_config_db_db: wiki
 wikijs_config_db_ssl: false
-
-wikijs_config_db_ssl_auto: true
 ```
-ONLY USED IF wikijs_config_ssl_auto si FALSE
-Uncomment the corresponding section in config.yml.j2
-Vaiables used to configure SSL connection to the database.
+
+Configuration of the SSL connection to the database.
+Ignored if `auto` is `true`.
+
 ```yml
-wikijs_config_db_ssl_rejectUnauthorized: false
-wikijs_config_db_ssl_ca: path/to/ca.crt
-wikijs_config_db_ssl_cert: path/to/cert.crt
-wikijs_config_db_ssl_key: path/to/key.pem
-wikijs_config_db_ssl_pfx: path/to/cert.pfx
-wikijs_config_db_ssl_passphrase: xyz123
+wikijs_config_ssl_options:
+  auto: true
+  # Use the fields you need when 'auto' is false.
+  # rejectUnauthorized: true
+  # ca: path/to/ca.crt
+  # cert: path/to/cert.crt
+  # key: path/to/key.pem
+  # pfx: path/to/cert.pfx
+  # passphrase: xyz123
 ```
 Only used if sqlite is selected
 ```yml

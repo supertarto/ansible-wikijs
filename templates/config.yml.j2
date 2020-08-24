@@ -32,16 +32,8 @@ db:
   ssl: {{ wikijs_config_db_ssl}}
 
   # Optional - PostgreSQL / MySQL / MariaDB only:
-  # -> Uncomment lines you need below and set `auto` to false
-  # -> Full list of accepted options: https://nodejs.org/api/tls.html#tls_tls_createsecurecontext_options
   sslOptions:
-    auto: {{ wikijs_config_db_ssl_auto }}
-    # rejectUnauthorized: {{ wikijs_config_db_ssl_rejectUnauthorized }}
-    # ca: {{ wikijs_config_db_ssl_ca }}
-    # cert: {{ wikijs_config_db_ssl_cert }}
-    # key: {{ wikijs_config_db_ssl_key }}
-    # pfx: {{ wikijs_config_db_ssl_pfx }}
-    # passphrase: {{ wikijs_config_db_ssl_passphrase }}
+    {{ wikijs_config_ssl_options | to_nice_yaml(indent=2) | indent(4, False) }}
 
   # SQLite only:
   storage: {{ wikijs_config_sqlite_storage }}

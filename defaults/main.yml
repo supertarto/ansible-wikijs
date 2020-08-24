@@ -19,16 +19,15 @@ wikijs_config_db_pass: wikijsrocks
 wikijs_config_db_db: wiki
 wikijs_config_db_ssl: false
 
-wikijs_config_db_ssl_auto: true
-
-# ONLY USED IF wikijs_config_ssl_auto si FALSE
-# Uncomment the corresponding section in config.yml.j2
-wikijs_config_db_ssl_rejectUnauthorized: false
-wikijs_config_db_ssl_ca: path/to/ca.crt
-wikijs_config_db_ssl_cert: path/to/cert.crt
-wikijs_config_db_ssl_key: path/to/key.pem
-wikijs_config_db_ssl_pfx: path/to/cert.pfx
-wikijs_config_db_ssl_passphrase: xyz123
+wikijs_config_ssl_options:
+  auto: true
+  # Other possible fields (ONLY USED IF wikijs_config_ssl_auto is FALSE):
+  # rejectUnauthorized: true
+  # ca: path/to/ca.crt
+  # cert: path/to/cert.crt
+  # key: path/to/key.pem
+  # pfx: path/to/cert.pfx
+  # passphrase: xyz123
 
 # only used if sqlite is selected
 wikijs_config_sqlite_storage: path/to/database.sqlite
