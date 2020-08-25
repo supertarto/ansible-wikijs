@@ -7,8 +7,6 @@ Install and configure Wiki.js with Ansible.
 Wiki.js require nodejs and a database such as PostrgeSQL. You can also use MariaDB or SQLite, but Wiki.js recommand PostgreSQL for futur update.
 You can use supertarto.nodejs and supertarto.postgresql
 
-Test
-
 ## Tested plateform
 * Debian 10 (Buster)
 
