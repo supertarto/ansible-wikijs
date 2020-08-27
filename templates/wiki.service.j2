@@ -6,8 +6,8 @@ After=network.target
 Type=simple
 ExecStart=/usr/bin/node server
 Restart=always
-# Consider creating a dedicated user for Wiki.js here:
-# User=nobody
+RestartSec=5
+User={{ wikijs_system_user }}
 Environment=NODE_ENV=production
 WorkingDirectory={{ wikijs_download_dest }}
 

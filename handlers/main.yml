@@ -3,10 +3,9 @@
   systemd:
     daemon_reload: true
 
-- name: Activate Wiki.js service
+- name: Enable Wiki.js service
   service:
     name: wiki
-    state: started
     enabled: true
 
 - name: Restart Wiki.js

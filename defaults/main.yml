@@ -5,6 +5,14 @@ wikijs_version: "2.4.107"
 wikijs_download_url: "https://github.com/Requarks/wiki/releases/download/{{ wikijs_version }}/wiki-js.tar.gz"
 wikijs_download_dest: /usr/local/wikijs
 
+############################
+# SYSTEM SPECIFIC VARIABLES
+############################
+
+wikijs_system_user: wikijs
+wikijs_system_group: wikijs
+wikijs_user_additional_groups: ""
+
 #################################
 # CONFIG FILE SPECIFIC VARIABLES
 #################################
