@@ -22,6 +22,12 @@ wikijs_version: "2.4.107"
 wikijs_download_url: "https://github.com/Requarks/wiki/releases/download/{{ wikijs_version }}/wiki-js.tar.gz"
 wikijs_download_dest: /usr/local/wikijs
 ```
+System user and group that should be created and used for the running service. wikijs_user_additional_groups allows specifying additional groups for the system user.
+```yml
+wikijs_system_user: wikijs
+wikijs_system_group: wikijs
+wikijs_user_additional_groups: ""
+```
 Port used to connect to your Wiki.js instance.
 ```yml
 wikijs_config_port: 3000

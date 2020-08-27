@@ -1,4 +1,19 @@
 ---
+- name: Create system group
+  group:
+    name: "{{ wikijs_system_group }}"
+    system: yes
+
+- name: Create system user
+  user:
+    name: "{{ wikijs_system_user }}"
+    group: "{{ wikijs_system_group }}"
+    groups: "{{ wikijs_user_additional_groups }}"
+    comment: "Service account for wikijs."
+    create_home: no
+    shell: /usr/sbin/nologin
+    system: yes
+
 - name: Check if Wiki.js is already installed
   stat:
     path: "{{ wikijs_download_dest }}"
@@ -14,14 +29,25 @@
     src: "{{ wikijs_download_url }}"
     remote_src: true
     dest: "{{ wikijs_download_dest }}/"
+    owner: "{{ wikijs_system_user }}"
+    group: "{{ wikijs_system_group }}"
   when: not wikijsinstalled.stat.exists or wikijs_update
+
+# Used when user or group changes
+- name: Set ownership
+  file:
+    path: "{{ wikijs_download_dest }}/"
+    owner: "{{ wikijs_system_user }}"
+    group: "{{ wikijs_system_group }}"
+    recurse: yes
+  when: wikijsinstalled.stat.pw_name != wikijs_system_user or wikijsinstalled.stat.gr_name != wikijs_system_group
 
 - name: Deploy config.yml
   template:
     src: config.yml.j2
     dest: "{{ wikijs_download_dest }}/config.yml"
-    owner: root
-    group: root
+    owner: "{{ wikijs_system_user }}"
+    group: "{{ wikijs_system_group }}"
     mode: 0640
   notify: Restart Wiki.js
 
@@ -34,7 +60,8 @@
     mode: 0640
   notify:
     - Reload systemctl daemon
-    - Activate Wiki.js service
+    - Enable Wiki.js service
+    - Restart Wiki.js
 
 - name: Flush handlers
   meta: flush_handlers
