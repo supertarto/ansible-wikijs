@@ -1,5 +1,5 @@
 # Ansible Wiki.js
-[![Build Status](https://travis-ci.org/supertarto/ansible-wikijs.svg?branch=master)](https://travis-ci.org/supertarto/ansible-wikijs)
+[![Build Status](https://travis-ci.com/supertarto/ansible-wikijs.svg?branch=master)](https://travis-ci.com/supertarto/ansible-wikijs)
 
 Install and configure Wiki.js with Ansible.
 Test
