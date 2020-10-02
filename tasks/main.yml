@@ -40,7 +40,7 @@
     owner: "{{ wikijs_system_user }}"
     group: "{{ wikijs_system_group }}"
     recurse: true
-  when: "wikijsinstalled.stat.pw_name != {{ wikijs_system_user }} or wikijsinstalled.stat.gr_name != {{ wikijs_system_group }}"
+  when: wikijsinstalled.stat.pw_name != {{ wikijs_system_user }} or wikijsinstalled.stat.gr_name != {{ wikijs_system_group }}
 
 - name: Deploy config.yml
   template:
