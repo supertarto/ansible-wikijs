@@ -41,7 +41,7 @@
     group: "{{ wikijs_system_group }}"
     recurse: true
   when: |
-    wikijsinstalled.stat.pw_name is undefined or wikijsinstalled.stat.pw_name != wikijs_system_user 
+    wikijsinstalled.stat.pw_name is undefined or wikijsinstalled.stat.pw_name != wikijs_system_user
     or wikijsinstalled.stat.gr_name is undefined or wikijsinstalled.stat.gr_name != wikijs_system_group
 
 - name: Deploy config.yml
