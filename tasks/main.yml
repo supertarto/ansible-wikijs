@@ -2,7 +2,7 @@
 - name: Create system group
   group:
     name: "{{ wikijs_system_group }}"
-    system: yes
+    system: true
 
 - name: Create system user
   user:
@@ -10,9 +10,9 @@
     group: "{{ wikijs_system_group }}"
     groups: "{{ wikijs_user_additional_groups }}"
     comment: "Service account for wikijs."
-    create_home: no
+    create_home: false
     shell: /usr/sbin/nologin
-    system: yes
+    system: true
 
 - name: Check if Wiki.js is already installed
   stat:
@@ -39,8 +39,8 @@
     path: "{{ wikijs_download_dest }}/"
     owner: "{{ wikijs_system_user }}"
     group: "{{ wikijs_system_group }}"
-    recurse: yes
-  when: wikijsinstalled.stat.pw_name != wikijs_system_user or wikijsinstalled.stat.gr_name != wikijs_system_group
+    recurse: true
+  # when: wikijsinstalled.stat.pw_name != wikijs_system_user or wikijsinstalled.stat.gr_name != wikijs_system_group
 
 - name: Deploy config.yml
   template:
