@@ -13,7 +13,7 @@ before_install:
 
 
 install:
-  - pip install molecule yamllint ansible-lint docker
+  - pip install molecule[docker] yamllint ansible-lint docker
 
 before_script:
   - cd ../
