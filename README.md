@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.com/supertarto/ansible-wikijs.svg?branch=master)](https://travis-ci.com/supertarto/ansible-wikijs)
 
 Install and configure Wiki.js with Ansible.
-Test
+
 
 ## Requirements
 Wiki.js require nodejs and a database such as PostrgeSQL. You can also use MariaDB or SQLite, but Wiki.js recommand PostgreSQL for futur update.
