@@ -32,6 +32,8 @@
     owner: "{{ wikijs_system_user }}"
     group: "{{ wikijs_system_group }}"
   when: not wikijsinstalled.stat.exists or wikijs_update
+  notify:
+    - Restart Wiki.js
 
 # Used when user or group changes
 - name: Set ownership
