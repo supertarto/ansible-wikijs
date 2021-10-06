@@ -5,34 +5,47 @@ Install and configure Wiki.js with Ansible.
 
 
 ## Requirements
+
 Wiki.js require nodejs and a database such as PostrgeSQL. You can also use MariaDB or SQLite, but Wiki.js recommand PostgreSQL for futur update.
 You can use supertarto.nodejs and supertarto.postgresql
 
 ## Tested plateform
+
 * Debian 10 (Buster)
+* Debian 11 (Bulleyes)
 
 ## Role variables
+
 Force install/update.
+
 ```yml
 wikijs_update: false
 ```
+
 Wikijs Version, download url and destination on your server.
+
 ```yml
-wikijs_version: "2.4.107"
+wikijs_version: "2.5.219"
 wikijs_download_url: "https://github.com/Requarks/wiki/releases/download/{{ wikijs_version }}/wiki-js.tar.gz"
 wikijs_download_dest: /usr/local/wikijs
 ```
+
 System user and group that should be created and used for the running service. wikijs_user_additional_groups allows specifying additional groups for the system user.
+
 ```yml
 wikijs_system_user: wikijs
 wikijs_system_group: wikijs
 wikijs_user_additional_groups: ""
 ```
+
 Port used to connect to your Wiki.js instance.
+
 ```yml
 wikijs_config_port: 3000
 ```
+
 Database informations. Postgres is recommanded.
+
 ```yml
 # postgres, mysql, mariadb, mssql, sqlite
 wikijs_config_db_type: postgres
@@ -58,11 +71,15 @@ wikijs_config_ssl_options:
   # pfx: path/to/cert.pfx
   # passphrase: xyz123
 ```
+
 Only used if sqlite is selected
+
 ```yml
 wikijs_config_sqlite_storage: path/to/database.sqlite
 ```
+
 Informations about you SSL certificate, if you need to use SSL.
+
 ```yml
 wikijs_config_ssl_enabled: false
 wikijs_config_ssl_port: 3443
@@ -91,6 +108,7 @@ wikijs_config_dataPath: ./data
 ```
 
 ## Examples
+
 ```yml
 ---
 - hosts: all
@@ -106,9 +124,12 @@ wikijs_config_dataPath: ./data
       - name: wikijs
         password: wikijsrocks
 ```
+
 ## Installation
-```
+
+```bash
 ansible-galaxy install supertarto.wikijs
 ```
+
 ## License
 GPL V3.0
