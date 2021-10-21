@@ -14,6 +14,12 @@
       when: ansible_os_family == 'Debian'
       changed_when: false
 
+  - name: Install crontab
+    apt:
+      name: cron
+      state: present
+    when: ansible_os_family == 'Debian'
+
   vars:
     postgresql_databases:
       - name: wiki
