@@ -4,21 +4,21 @@
   roles:
     - role: supertarto.nodejs
     - role: supertarto.postgresql
-    - role: supertarto.wikijs
+    - role: pmoscode.wikijs
 
   pre_tasks:
     - name: Update apt cache.
       apt:
         update_cache: true
         cache_valid_time: 600
-      when: ansible_os_family == 'Debian'
+      when: ansible_os_family == 'Debian' or ansible_os_family == 'Ubuntu'
       changed_when: false
 
     - name: Install crontab
       apt:
         name: cron
         state: present
-      when: ansible_os_family == 'Debian'
+      when: ansible_os_family == 'Debian' or ansible_os_family == 'Ubuntu'
 
   vars:
     postgresql_databases:
