@@ -45,7 +45,7 @@ Port used to connect to your Wiki.js instance.
 wikijs_config_port: 3000
 ```
 
-Database informations. Postgres is recommanded.
+Database information. Postgres is recommended.
 
 ```yml
 # postgres, mysql, mariadb, mssql, sqlite
@@ -79,7 +79,7 @@ Only used if sqlite is selected
 wikijs_config_sqlite_storage: path/to/database.sqlite
 ```
 
-Informations about you SSL certificate, if you need to use SSL.
+Information about you SSL certificate, if you need to use SSL.
 
 ```yml
 wikijs_config_ssl_enabled: false
@@ -116,7 +116,7 @@ wikijs_config_dataPath: ./data
   roles:
     - role: supertarto.nodejs
     - role: supertarto.postgresql
-    - role: supertarto.wikijs
+    - role: pmoscode.wikijs
 
   vars:
     postgresql_databases:
@@ -129,7 +129,7 @@ wikijs_config_dataPath: ./data
 ## Installation
 
 ```bash
-ansible-galaxy install supertarto.wikijs
+ansible-galaxy install pmoscode.wikijs
 ```
 
 ## License
