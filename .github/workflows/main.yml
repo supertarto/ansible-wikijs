@@ -1,19 +1,17 @@
 ---
 name: CI
-'on':
-  pull_request:
+
+on:
   push:
-    branches:
-      - master
-  schedule:
-    - cron: "0 5 * * 0"
+    branches: [ development ]
+  pull_request:
+    branches: [ main ]
 
 defaults:
   run:
-    working-directory: 'supertarto.wikijs'
+    working-directory: 'pmoscode.wikijs'
 
 jobs:
-
   lint:
     name: Lint
     runs-on: ubuntu-latest
@@ -21,7 +19,7 @@ jobs:
       - name: Check out the codebase.
         uses: actions/checkout@v2
         with:
-          path: 'supertarto.wikijs'
+          path: 'pmoscode.wikijs'
 
       - name: Set up Python 3.
         uses: actions/setup-python@v2
@@ -42,12 +40,14 @@ jobs:
         distrib:
           - debian10:latest
           - debian11:latest
+          - ubuntu2004:latest
+          - ubuntu2204:latest
 
     steps:
       - name: Check out the codebase.
         uses: actions/checkout@v2
         with:
-          path: 'supertarto.wikijs'
+          path: 'pmoscode.wikijs'
 
       - name: Set up Python 3.
         uses: actions/setup-python@v2

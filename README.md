@@ -1,8 +1,7 @@
 # Ansible Wiki.js
-[![CI](https://github.com/supertarto/ansible-wikijs/workflows/CI/badge.svg?event=push)](https://github.com/supertarto/ansible-wikijs/actions?query=workflow%3ACI)
+[![CI](https://github.com/pmoscode/wikijs/workflows/CI/badge.svg?event=push)](https://github.com/pmoscode/wikijs/actions?query=workflow%3ACI)
 
 Install and configure Wiki.js with Ansible.
-
 
 ## Requirements
 
@@ -13,6 +12,8 @@ You can use supertarto.nodejs and supertarto.postgresql
 
 * Debian 10 (Buster)
 * Debian 11 (Bulleyes)
+* Ubuntu 20.04 (Focal)
+* Ubuntu 22.04 (Jammy)
 
 ## Role variables
 
@@ -25,7 +26,7 @@ wikijs_update: false
 Wikijs Version, download url and destination on your server.
 
 ```yml
-wikijs_version: "2.5.219"
+wikijs_version: "2.5.285"
 wikijs_download_url: "https://github.com/Requarks/wiki/releases/download/{{ wikijs_version }}/wiki-js.tar.gz"
 wikijs_download_dest: /usr/local/wikijs
 ```

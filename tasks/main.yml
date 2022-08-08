@@ -66,6 +66,3 @@
     - Reload systemctl daemon
     - Enable Wiki.js service
     - Restart Wiki.js
-
-- name: Flush handlers
-  meta: flush_handlers

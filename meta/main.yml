@@ -1,17 +1,21 @@
 ---
 galaxy_info:
-  author: "Xavier Binois"
+  author: "Xavier Binois - forked by pmoscode"
   description: "Install and configure Wiki.js with Ansible"
   role_name: wikijs
-  namespace: supertarto
+  namespace: pmoscode
   license: "GNU General Public License v3.0"
   min_ansible_version: 2.8
 
   platforms:
+    - name: "Ubuntu"
+      versions:
+        - focal
+        - jammy
     - name: "Debian"
       versions:
-        - "buster"
-        - "bulleyes"
+        - buster
+        - bulleyes
 
   galaxy_tags:
     - web
