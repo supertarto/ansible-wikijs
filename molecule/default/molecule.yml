@@ -5,13 +5,15 @@ driver:
   name: docker
 platforms:
   - name: instance
-    image: "thetarto/ansible-${MOLECULE_DISTRIB}"
+    image: "geerlingguy/docker-${MOLECULE_DISTRO:-ubuntu2004}-ansible:latest"
+    command: ${MOLECULE_DOCKER_COMMAND:-""}
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     privileged: true
-    command: /lib/systemd/systemd
     pre_build_image: true
 provisioner:
   name: ansible
   playbooks:
     converge: ${MOLECULE_PLAYBOOK:-converge.yml}
+verifier:
+  name: ansible

@@ -37,11 +37,15 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        distrib:
-          - debian10:latest
-          - debian11:latest
-          - ubuntu2004:latest
-          - ubuntu2204:latest
+        include:
+          - distro: ubuntu2204
+            playbook: converge.yml
+          - distro: ubuntu2004
+            playbook: converge.yml
+          - distro: debian10
+            playbook: converge.yml
+          - distro: debian11
+            playbook: converge.yml
 
     steps:
       - name: Check out the codebase.
@@ -62,4 +66,5 @@ jobs:
         env:
           PY_COLORS: '1'
           ANSIBLE_FORCE_COLOR: '1'
-          MOLECULE_DISTRIB: ${{ matrix.distrib }}
+          MOLECULE_DISTRO: ${{ matrix.distro }}
+          MOLECULE_PLAYBOOK: ${{ matrix.playbook }}
