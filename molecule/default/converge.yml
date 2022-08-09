@@ -3,7 +3,7 @@
   hosts: all
   roles:
     - role: supertarto.nodejs
-    - role: supertarto.postgresql
+    - role: geerlingguy.postgresql
     - role: pmoscode.wikijs
 
   pre_tasks:
