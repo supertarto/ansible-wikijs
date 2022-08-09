@@ -2,7 +2,7 @@
 - name: Converge
   hosts: all
   roles:
-    - role: supertarto.nodejs
+    - role: geerlingguy.nodejs
     - role: geerlingguy.postgresql
     - role: pmoscode.wikijs
 
