@@ -2,13 +2,13 @@
 [![CI](https://github.com/pmoscode/wikijs/workflows/CI/badge.svg?event=push)](https://github.com/pmoscode/wikijs/actions?query=workflow%3ACI)
 
 Install and configure Wiki.js with Ansible.
+Updated and extended by pmoscode
 
 ## Requirements
 
-Wiki.js require nodejs and a database such as PostrgeSQL. You can also use MariaDB or SQLite, but Wiki.js recommand PostgreSQL for futur update.
-You can use supertarto.nodejs and supertarto.postgresql
+Wiki.js require nodejs and a database such as PostrgeSQL. You can also use MariaDB or SQLite, but Wiki.js recommend PostgreSQL for future update.
 
-## Tested plateform
+## Tested platform
 
 * Debian 10 (Buster)
 * Debian 11 (Bulleyes)
@@ -27,7 +27,7 @@ Wikijs Version, download url and destination on your server.
 
 ```yml
 wikijs_version: "2.5.285"
-wikijs_download_url: "https://github.com/Requarks/wiki/releases/download/{{ wikijs_version }}/wiki-js.tar.gz"
+wikijs_download_url: "https://github.com/Requarks/wiki/releases/download/v{{ wikijs_version }}/wiki-js.tar.gz"
 wikijs_download_dest: /usr/local/wikijs
 ```
 
@@ -114,8 +114,8 @@ wikijs_config_dataPath: ./data
 ---
 - hosts: all
   roles:
-    - role: supertarto.nodejs
-    - role: supertarto.postgresql
+    - role: geerlingguy.nodejs
+    - role: geerlingguy.postgresql
     - role: pmoscode.wikijs
 
   vars:
