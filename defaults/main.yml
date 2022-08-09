@@ -1,8 +1,8 @@
 ---
 wikijs_update: false
 
-wikijs_version: "2.5.285"
-wikijs_download_url: "https://github.com/Requarks/wiki/releases/download/{{ wikijs_version }}/wiki-js.tar.gz"
+wikijs_version: "2.5.286"
+wikijs_download_url: "https://github.com/Requarks/wiki/releases/download/v{{ wikijs_version }}/wiki-js.tar.gz"
 wikijs_download_dest: /usr/local/wikijs
 
 ############################
