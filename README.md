@@ -1,5 +1,5 @@
 # Ansible Wiki.js
-[![CI](https://github.com/supertarto/ansible-wikijs/workflows/CI/badge.svg?event=push)](https://github.com/supertarto/ansible-wikijs/actions?query=workflow%3ACI)
+[![CI](https://github.com/supertarto/ansible-wikijs/actions/workflows/ci.yml/badge.svg)](https://github.com/supertarto/ansible-wikijs/actions/workflows/ci.yml)
 
 Install and configure Wiki.js with Ansible.
 
