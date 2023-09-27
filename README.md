@@ -12,7 +12,8 @@ You can use supertarto.nodejs and supertarto.postgresql
 ## Tested plateform
 
 * Debian 10 (Buster)
-* Debian 11 (Bulleyes)
+* Debian 11 (Bullseye)
+* Debian 12 (Bookworm)
 
 ## Role variables
 
@@ -25,7 +26,7 @@ wikijs_update: false
 Wikijs Version, download url and destination on your server.
 
 ```yml
-wikijs_version: "2.5.219"
+wikijs_version: "2.5..300"
 wikijs_download_url: "https://github.com/Requarks/wiki/releases/download/{{ wikijs_version }}/wiki-js.tar.gz"
 wikijs_download_dest: /usr/local/wikijs
 ```
