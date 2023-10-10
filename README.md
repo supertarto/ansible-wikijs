@@ -129,7 +129,7 @@ wikijs_config_dataPath: ./data
 ## Installation
 
 ```bash
-ansible-galaxy install supertarto.wikijs
+ansible-galaxy role install supertarto.wikijs
 ```
 
 ## License
